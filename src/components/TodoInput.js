@@ -16,7 +16,7 @@ const TodoInput = () => {
   const onChange = (e) => {
     setTodo({
       todo: e.target.value,
-      completed,
+      completed: false,
     });
   };
   const onSubmit = (e) => {
@@ -26,6 +26,7 @@ const TodoInput = () => {
       addTodo(todoInput);
       setTodo({
         todo: "",
+        completed: false,
       });
     } else {
       alert("please enter todo");

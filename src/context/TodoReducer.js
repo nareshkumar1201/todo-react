@@ -25,10 +25,14 @@ const TodoReducer = (state, action) => {
         todos: state.todos.filter((todoObj) => todoObj.id !== action.payload),
       };
     case UPDATE_TODO:
+      console.log("in reducer :", action.payload);
       return {
         ...state,
         todos: state.todos.map((todoObj) => {
-          if (todoObj.id === action.payload.id) return todoObj;
+          if (todoObj.id === action.payload) {
+            todoObj.completed = !todoObj.completed;
+          }
+          return todoObj;
         }),
       };
     default:

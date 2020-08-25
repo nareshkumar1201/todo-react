@@ -12,7 +12,23 @@ import {
 
 const TodoState = (props) => {
   const initialState = {
-    todos: [],
+    todos: [
+      {
+        id: 1,
+        todo: "Do Home work",
+        completed: false,
+      },
+      {
+        id: 2,
+        todo: "Clean Room",
+        completed: false,
+      },
+      {
+        id: 3,
+        todo: "Wash Car",
+        completed: false,
+      },
+    ],
   };
 
   const [state, dispatch] = useReducer(TodoReducer, initialState);
@@ -42,8 +58,9 @@ const TodoState = (props) => {
 
   //update todo
 
-  const updateTodo = (updatedTodo) => {
-    dispatch({ type: UPDATE_TODO, payload: updatedTodo });
+  const updateTodo = (id) => {
+    console.log("in todoState", id);
+    dispatch({ type: UPDATE_TODO, payload: id });
   };
 
   return (

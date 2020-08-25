@@ -8,12 +8,7 @@ const Todos = () => {
   console.log(todos);
 
   return todos.length > 0 ? (
-    todos.map((todo) => (
-      <div>
-        {console.log(todo.id)}
-        <TodoItem todo={todo} key={todo.id} />
-      </div>
-    ))
+    todos.map((todo) => <TodoItem todo={todo} key={todo.id} />)
   ) : (
     <p className="text-muted mx-2">Your Todo List is Empty ,Add Todos...</p>
   );

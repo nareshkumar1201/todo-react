@@ -3,20 +3,18 @@ import PropTypes from "prop-types";
 import TodoContext from "../context/TodoContext";
 
 const TodoItem = ({ todo }) => {
-  console.log(todo);
+  // console.log(todo);
+
   const todoContext = useContext(TodoContext);
   const { deleteTodo, updateTodo } = todoContext;
+  // const { id, todo, completed } = todo;
+
   const onChange = (e) => {
-    if (e.target.checked) {
-      todo.completed = true;
-
-      console.log(e.target.value);
-
-      updateTodo(todo);
-    }
+    console.log("todoItem: update req", todo.id);
+    updateTodo(todo.id);
   };
   const onClick = () => {
-    console.log("todoItem:", todo.id);
+    console.log("todoItem: delete req", todo.id);
     deleteTodo(todo.id);
   };
 
@@ -24,11 +22,11 @@ const TodoItem = ({ todo }) => {
     <Fragment>
       <div className="container col-12 todo-item-container">
         <ul className="list-group w-100">
-          <li key={todo.id} className="list-group-item">
+          <li className="list-group-item">
             <input
               type="checkbox"
               name="todo"
-              value={todo.todo}
+              // value={todo.todo}
               onChange={onChange}
             />
             <span className="text-info"> {todo.todo}</span>
@@ -42,13 +40,6 @@ const TodoItem = ({ todo }) => {
               {" "}
               <i className="fa fa-trash text-info" aria-hidden="true"></i>
             </button>
-
-            {/* <input
-              type="button"
-              value="delete"
-              className="btn btn-danger btn-sm float-right"
-              onClick={onClick}
-            /> */}
           </li>
         </ul>
       </div>
